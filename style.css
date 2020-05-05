@@ -76,7 +76,8 @@
   display: block;
 }
 
-.key, .value {
+.key,
+.value {
   background: #242323;
   color: #c0bdbd;
   border: none;
