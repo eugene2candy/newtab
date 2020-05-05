@@ -28,7 +28,11 @@ const searchHandler = () => {
       .replace(rawSearchValue.split(" ")[0], "")
       .trim();
     search.value = preSearch;
-    window.open(`${searchUrl + rawSearchValue.replace(/ /g, "+")}`, "_self");
+    if (searchUrl.length === 0) {
+      window.open(`http://${rawSearchValue.replace(/ /g, "+")}`, "_self");
+    } else {
+      window.open(`${searchUrl + rawSearchValue.replace(/ /g, "+")}`, "_self");
+    }
   } else {
     window.location.reload();
   }
@@ -81,6 +85,7 @@ const storageInit = (forced = true) => {
     setLink("mdn", "https://developer.mozilla.org/en/search?q=");
     setLink("bd", "https://www.baidu.com/s?wd=");
     setLink("bing", "https://cn.bing.com/search?q=");
+    setLink("open", "");
   }
 };
 
