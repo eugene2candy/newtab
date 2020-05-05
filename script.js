@@ -24,13 +24,11 @@ const searchHandler = () => {
   let rawSearchValue = search.value.split(preSearch)[1];
   const searchUrl = getLink(rawSearchValue.split(" ")[0]);
   if (searchUrl !== undefined) {
-    console.log(rawSearchValue.split(" ")[0]);
     rawSearchValue = rawSearchValue
       .replace(rawSearchValue.split(" ")[0], "")
       .trim();
-    console.log(searchUrl);
-    console.log(rawSearchValue);
-    window.location.replace(`${searchUrl + rawSearchValue.replace(/ /g, "+")}`);
+    search.value = preSearch;
+    window.open(`${searchUrl + rawSearchValue.replace(/ /g, "+")}`, "_self");
   } else {
     window.location.reload();
   }
